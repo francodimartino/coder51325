@@ -1,0 +1,28 @@
+{% extends "AppCoder/padre.html" %}
+
+{% load static %}
+
+{% block titulo %}
+<h1 class="mb-5">resultados de la busqueda de cursos</h1>
+{% endblock %}
+
+{% block contenido_que_cambia %}
+
+{% if cursos %}
+
+<h2>LISTADO DE CURSOS</h2>
+{% for curso in cursos %}
+
+<h3>{{ curso.nombre }} - {{ curso.comision }}</h3>
+
+{% endfor %}
+
+{% else %}
+
+<h2>NO HAY CURSOS</h2>
+
+{% endif %}
+
+
+
+{% endblock %}

@@ -2,8 +2,32 @@
 
 {% load static %}
 
-
 {% block titulo %}
-    <h1>Bienvenidos a la pagina de ESTUDIANTES!</h1>
+<h1 class="mb-5">ESTE TITULO VIENE DE ESTUDIANTES</h1>
 {% endblock %}
 
+{% block contenido_que_cambia %}
+<h2>LISTADO DE ESTUDIANTES</h2>
+<ul>
+
+    {% for estudiante in object_list %}
+    <li>
+        
+        {{ estudiante }}
+
+       
+    </li>
+    <a class="btn btn-danger" href="{% url 'estudiante_borrar' estudiante.id %}">Borrar</a>
+    <a class="btn btn-success" href="{% url 'estudiante_editar' estudiante.id %}">Editar</a>
+    
+    {% endfor %}
+    <br>
+    <br>
+    <a class="btn btn-primary" href="{% url 'estudiante_crear'  %}">AGREGAR ESTUDIANTE</a>
+    
+
+
+</ul>
+<h3>{{ mensaje }}</h3>
+
+{% endblock %}

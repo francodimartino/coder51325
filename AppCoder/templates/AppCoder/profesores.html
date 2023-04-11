@@ -9,7 +9,7 @@
 
 {% block contenido_que_cambia %}
 <h1> Hola PROFES</h1>
-
+<h2>{{ mensaje }}</h2>
 <form action="" method="post">
     {% csrf_token %}
     <table>
@@ -21,11 +21,12 @@
 <table>
     <thead>
         <tr>
-            <th>ID</th>
+            
             <th>Nombre</th>
             <th>Apellido</th>
             <th>Email</th>
             <th>Profesion</th>
+            <th>OPCIONES</th>
         </tr>
     </thead>
     <tbody>
@@ -34,9 +35,7 @@
 
         {% for profesor in profesores %}
         <tr>
-            <td>
-                {{ profesor.id}}
-            </td>
+            
             <td>
                 {{ profesor.nombre}}
             </td>
@@ -48,6 +47,10 @@
             </td>
             <td>
                 {{ profesor.profesion}}
+            </td>
+            <td>
+                <a class="btn btn-danger" href="{% url 'eliminarProfesor'  profesor.id  %}">Eliminar </a>
+                <a class="btn btn-success" href="{% url 'editarProfesor'  profesor.id  %}">Editar</a>
             </td>
         </tr>
         {% endfor %}
