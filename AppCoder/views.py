@@ -118,6 +118,10 @@ class EstudianteDetalle(DetailView): #vista usada para MOSTRAR DATOS
     model=Estudiante
     template_name="Appcoder/estudiante_detalle.html"
 
+class EstudianteDelete(DeleteView):#vista usada para ELIMINAR
+    model=Estudiante
+    success_url= reverse_lazy("estudiante_list")
+
 class EstudianteUpdate(UpdateView):#vista usada para EDITAR
     model = Estudiante
     success_url = reverse_lazy('estudiante_list')
