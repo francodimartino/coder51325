@@ -22,10 +22,17 @@
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
                 <a class="navbar-brand" href="{% url 'inicioApp' %}">51325</a>
+                {% if user.is_authenticated %}
                 <a class="btn btn-primary" href="{% url 'cursos' %}">CURSOS</a>
                 <a class="btn btn-primary" href="{% url 'estudiantes' %}">ESTUDIANTES</a>
                 <a class="btn btn-primary" href="{% url 'entregables' %}">ENTREGABLES</a>
                 <a class="btn btn-primary" href="{% url 'profesores' %}">PROFESORES</a>
+                <p>Bienvenido: {{ user.username }}</p>
+                <a class="btn btn-primary" href="{% url 'logout' %}">LOGOUT</a>
+                {% else %}
+                <a class="btn btn-primary" href="{% url 'login' %}">LOGIN</a>
+                <a class="btn btn-danger" href="{% url 'register' %}">REGISTER</a>
+                {% endif %}
             </div>
         </nav>
         <!-- Masthead-->
