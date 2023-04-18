@@ -1,0 +1,29 @@
+{% extends "AppCoder/padre.html" %}
+
+{% load static %}
+
+{% block titulo %}
+<h1 class="mb-5">AGREGANDO AVATAR DE: {{ usuario.username }} </h1>
+{% endblock %}
+
+{% block contenido_que_cambia %}
+
+<h3>{{ mensaje }}</h3>
+
+<form action="{% url 'agregarAvatar'  %}" method="POST" enctype="multipart/form-data"> {% csrf_token %}
+
+    <table>
+    
+        {{ form.as_table }}
+    
+    </table>
+    
+    <input type="submit" value="AGREGAR AVATAR">
+    
+    
+    </form>
+
+    {{ mensaje }}
+
+
+{% endblock %}
